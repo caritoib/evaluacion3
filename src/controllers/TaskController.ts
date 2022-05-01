@@ -115,7 +115,7 @@ export default class TaskController {
       }
 
       if (taskFromDb.userId !== user.sub) {
-        res.status(403).json({ message: 'You dont have permissions for delete Task' })
+        res.status(403).json({ message: 'You dont have permissions for deleting Task' })
         return
       }
 
