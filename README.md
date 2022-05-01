@@ -1,4 +1,4 @@
-# API Rest Pet Collection
+# API Rest Tasks
 
 Api rest tasks manager developed with Node JS, Express, Typescript, Mysql(PlanetScale)
 
@@ -94,14 +94,14 @@ Returns the new user if email doesnt exists.
 
 ---
 
-### GET /api/v1/pets
-Returns all user's pets. **Requires Bearer Token at Authorization Header**
+### GET /api/v1/tasks
+Returns all user's tasks. **Requires Bearer Token at Authorization Header**
 
 **Example request:**
 
 *Method*: `GET`
 
-*Endpoint: `/api/v1/pets`*
+*Endpoint: `/api/v1/tasks`*
 
 **Example succesfully response:**
 
@@ -111,24 +111,25 @@ Returns all user's pets. **Requires Bearer Token at Authorization Header**
 ```json
 [
   {
-    "id": 1,
-    "name": "Cheems",
-    "type": "Dog",
-    "birth": "2020-01-01T00:00:00.000Z",
-    "photo": "someUrl",
-    "userId": 1
+    
+        "id": 1,
+        "title": "task 1",
+        "content": "programming task",
+        "done": false,
+        "userId": 1
+   
   }
 ]
 ```
 
-### GET /api/v1/pets/:id
-Return a pet by id. **Requires Bearer Token at Authorization Header**
+### GET /api/v1/tasks/:id
+Return a task by id. **Requires Bearer Token at Authorization Header**
 
 **Example request:**
 
 *Method*: `GET`
 
-*Endpoint: `/api/v1/pets/1`*
+*Endpoint: `/api/v1/tasks/1`*
 
 **Example succesfully response:**
 
@@ -137,31 +138,30 @@ Return a pet by id. **Requires Bearer Token at Authorization Header**
 *Body:*
 ```json
 {
-  "id": 1,
-  "name": "Cheems",
-  "type": "Dog",
-  "birth": "2020-01-01T00:00:00.000Z",
-  "photo": "someUrl",
-  "userId": 1
-}
+        "id": 1,
+        "title": "titulo 1",
+        "content": "contenido modificado para ver si da mensaje",
+        "done": true,
+        "userId": 1
 ```
 
-### POST /api/v1/pets
-Create a new pet for logged user. **Requires Bearer Token at Authorization Header**
+### POST /api/v1/tasks
+Create a new tasks for logged user. **Requires Bearer Token at Authorization Header**
 
 **Example request:**
 
 *Method*: `POST`
 
-*Endpoint: `/api/v1/pets`*
+*Endpoint: `/api/v1/tasks`*
 
 *Body:*
 ```json
 {
-  "name": "Cheems",
-  "type": "Dog",
-  "birth": "2020-01-01T00:00:00.000Z",
-  "photo": "someUrl"
+        "id": 1,
+        "title": "titulo 1",
+        "content": "contenido modificado para ver si da mensaje",
+        "done": false,
+        "userId": 1
 }
 ```
 
@@ -172,43 +172,42 @@ Create a new pet for logged user. **Requires Bearer Token at Authorization Heade
 *Body:*
 ```json
 {
-  "id": 1,
-  "name": "Cheems",
-  "type": "Dog",
-  "birth": "2020-01-01T00:00:00.000Z",
-  "photo": "someUrl",
-  "userId": 1
+         "id": 1,
+        "title": "titulo 1",
+        "content": "contenido modificado para ver si da mensaje",
+        "done": true,
+        "userId": 1
 }
 ```
 
-### PUT /api/v1/pets/:id
-Update a pet by id. **Requires Bearer Token at Authorization Header**
+### PUT /api/v1/tasks/:id
+Update tasks by id. **Requires Bearer Token at Authorization Header**
 
 **Example request:**
 
 *Method*: `PUT`
 
-*Endpoint: `/api/v1/pets/1`*
+*Endpoint: `/api/v1/tasks/1`*
 
 *Body:*
 ```json
 {
-  "name": "NotCheems",
-  "type": "Cat"
+  "title": "title updated",
+  "content": "content updated"
 }
 ```
 
 **Example successfully response:**
 *Status: `204`*
 
-### DELETE /api/v1/pets/:id
-Delete a pet by id. **Requires Bearer Token at Authorization Header**
+### DELETE /api/v1/tasks/:id
+Delete a tasks by id. **Requires Bearer Token at Authorization Header**
 
 **Example request:**
 
 *Method*: `DELETE`
 
-*Endpoint: `/api/v1/pets/1`*
+*Endpoint: `/api/v1/tasks/1`*
 
 **Example successfully response:**
 
